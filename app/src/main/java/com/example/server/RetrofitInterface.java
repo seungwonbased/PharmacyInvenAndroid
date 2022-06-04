@@ -6,5 +6,6 @@ import retrofit2.http.GET;
 public interface RetrofitInterface {
 
 //    @PUT("/member/register")
+//    @GET("/member/register")
 
 }
