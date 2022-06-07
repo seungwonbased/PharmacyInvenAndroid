@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button button1 = findViewById(R.id.loginbutton);
         button1.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(intent);
         });
 
