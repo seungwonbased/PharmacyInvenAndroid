@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1361111111111111" />
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/activity_map2.xml" value="0.21965579710144928" />
+        <entry key="app/src/main/res/layout/item_for_basket.xml" value="0.15625" />
         <entry key="app/src/main/res/layout/item_for_drug.xml" value="0.2087982177734375" />
         <entry key="app/src/main/res/layout/list_recycle.xml" value="0.17864583333333334" />
         <entry key="app/src/main/res/menu/basketmenu.xml" value="0.1796875" />
