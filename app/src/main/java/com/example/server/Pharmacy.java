@@ -1,6 +1,8 @@
 package com.example.server;
 
-public class Pharmacy {
+import java.io.Serializable;
+
+public class Pharmacy implements Serializable{
 
     private String pharmaId;
     private String name;

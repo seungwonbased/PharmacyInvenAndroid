@@ -9,7 +9,7 @@ public class RetrofitClient {
     private static RetrofitInterface retrofitInterface;
     private static String baseUrl = "http://10.0.2.2:8080/";
 
-    private RetrofitClient() {
+    public RetrofitClient() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())

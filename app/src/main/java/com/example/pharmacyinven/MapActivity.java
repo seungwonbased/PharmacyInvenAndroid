@@ -9,7 +9,11 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.example.server.Pharmacy;
+import com.example.server.RetrofitClient;
+import com.example.server.RetrofitInterface;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -20,16 +24,25 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private FragmentManager fragmentManger;
     private MapFragment mapFragment;
+    private RetrofitClient retrofitClient;
+    private RetrofitInterface retrofitInterface;
+    ArrayList<Pharmacy> pharmacyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
         fragmentManger = getFragmentManager();
         mapFragment = (MapFragment)fragmentManger.findFragmentById(R.id.googleMap);
         mapFragment.getMapAsync(this::onMapReady);
@@ -37,29 +50,27 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        ArrayList<LocationList> locdata = new ArrayList<>();
 
-        LocationList loc = new LocationList();
-        loc.setLatitude(37.278379);
-        loc.setLongitude(127.045984);
-        loc.setName("도병원약국");
-        locdata.add(loc);
+        ArrayList<LocationList> locData = new ArrayList<>();
 
-        loc = new LocationList();
-        loc.setLatitude(37.278659);
-        loc.setLongitude(127.045211);
-        loc.setName("메디온우리대학약국");
-        locdata.add(loc);
 
-        for(LocationList data : locdata){
+
+        for (int i = 0; i < 6; ++i) {
+            LocationList loc = new LocationList();
+            loc.setLatitude(Double.parseDouble(pharmacyList.get(i).getLatitude()));
+            loc.setLongitude(Double.parseDouble(pharmacyList.get(i).getLongitude()));
+            loc.setName(pharmacyList.get(i).getName());
+            locData.add(loc);
+            System.out.println(loc);
+        }
+
+        for(LocationList data : locData){
             System.out.println(data.getLatitude());
             System.out.println(data.getLongitude());
             System.out.println(data.getName());
         }
 
-        //위에는 반복문으로 진행 승원이가 만들어준 데이터로 객체로 ArrayList add
-
-        for(LocationList data : locdata){
+        for(LocationList data : locData){
             LatLng location = new LatLng(data.getLatitude(), data.getLongitude());
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.title(data.getName());
@@ -75,21 +86,20 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
         LatLng location = new LatLng(37.278379, 127.045984);
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.title("success");
-//        markerOptions.snippet("제발");
-//        markerOptions.position(location);
-//        BitmapDrawable bitmap =(BitmapDrawable)getResources().getDrawable(R.drawable.marker);
-//        Bitmap b = bitmap.getBitmap();
-//        Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100, 100, false);
-//        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
-//
-//        googleMap.addMarker(markerOptions);
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.title("success");
+        markerOptions.snippet("제발");
+        markerOptions.position(location);
+        BitmapDrawable bitmap =(BitmapDrawable)getResources().getDrawable(R.drawable.marker);
+        Bitmap b = bitmap.getBitmap();
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100, 100, false);
+        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+
+        googleMap.addMarker(markerOptions);
 
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,16));
 
-        //Marker 클릭 시 다음 레이아웃으로 넘어가기
         googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
