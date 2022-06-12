@@ -61,7 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("Retrofit login", "로그인 실패");
                     } else {
                         Log.d("Retrofit login", "로그인 성공");
-                        Intent intent = new Intent(getApplicationContext(), GetPharmacyListActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                        intent.putExtra("memberId", resultId);
                         startActivity(intent);
                     }
                 }
@@ -73,17 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
             });
 
-
         });
-
-
-
-
-
-
-
-
-
 
     }
 }

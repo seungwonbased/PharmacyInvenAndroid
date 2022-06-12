@@ -6,12 +6,19 @@
         <entry key="..\:/Users/whtnd/AndroidStudioProjects/PharmacyInvenAndroid/app/src/main/res/layout/activity_join.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/whtnd/AndroidStudioProjects/PharmacyInvenAndroid/app/src/main/res/layout/activity_login.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/whtnd/AndroidStudioProjects/PharmacyInvenAndroid/app/src/main/res/layout/activity_main.xml" value="0.17603850050658562" />
-        <entry key="..\:/Users/whtnd/AndroidStudioProjects/PharmacyInvenAndroid/app/src/main/res/layout/activity_map.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/drawable/marker.xml" value="0.147" />
+        <entry key="app/src/main/res/layout/activity_basket.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_drug_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_get_pharmacy_list.xml" value="0.1105072463768116" />
+        <entry key="app/src/main/res/layout/activity_join.xml" value="0.2590682983398438" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1361111111111111" />
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/activity_map2.xml" value="0.21965579710144928" />
+        <entry key="app/src/main/res/layout/item_for_basket.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/item_for_drug.xml" value="0.6030532836914063" />
+        <entry key="app/src/main/res/menu/basketmenu.xml" value="0.1" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -5,13 +5,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.PUT;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RetrofitInterface {
-
-//    @PUT("/member/register")
-//    @GET("/member/register")
-    // 멤버 인터페이스
 
     @PUT("member/register")
     Call<Member> registerMember(@Query("id") String id,
@@ -23,8 +20,16 @@ public interface RetrofitInterface {
     Call<Member> login(@Query("id") String id,
                        @Query("pw") String pw);
 
+    @GET("/drug/{pharmId}")
+    Call<List<Drug>> getDrugList(@Path("pharmId") String pharmId);
 
 
+    @PUT("cart/insert")
+    Call<Cart> putItemToCart(@Query("memberId") String memberId,
+                             @Query("drugId") String drugId);
+
+    @GET("cart/{id}")
+    Call<List<Cart>> getCart(@Path("id") String id);
 
 
     // 약국 인터페이스
